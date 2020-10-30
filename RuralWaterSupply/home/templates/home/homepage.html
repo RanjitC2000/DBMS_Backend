@@ -1,0 +1,49 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+
+            <p style="padding-left: 10px ">
+            <h4>The Rural Water Supply and Sanitation Project seek to improve access by rural populations to safe potable water<br> and to support implementation of a program to supply water to rural populations. There are four components.</h4>
+            <div class="row">
+                <div class="column">
+                  <h3>Water Facilities</h3>
+                  <img src="{% static 'watertap.jpg' %}" alt="Water" style="width:100%">
+                </div>
+                <div class="column">
+                  <h3>Sanitation Facilities</h3>
+                  <img src="{% static 'sanitary.jpg' %}" alt="Sanitation" style="width:100%">
+                </div>
+                <div class="column">
+                  <h3>Participation Approach</h3>
+                  <img src="{% static 'community.jpg' %}" alt="Community" style="width:100%">
+                </div>
+              </div>
+
+
+
+            <table style="width:50%">
+              <tr>
+                <th>Sno</th>
+                <th>Component Name</th>
+                <th>Allocation as % of the Yearly Allocation of NRDWP</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>NRDWP</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>NRDWP (Programme)</td>
+
+                <td>94</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>NRDWP</td>
+                <td>80</td>
+              </tr>
+            </table>
+
+{% endblock %}
