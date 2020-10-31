@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <form  action="SendMessage" method="post">
+        {% csrf_token %}
+    <div class="banner">
+      <h1>Send Your Message</h1>
+    </div>
+    <div class="colums">
+      <div class="item">
+        <label for="Title"> Title<span>*</span></label>
+        <input id="Title" type="text" name="Title" required/>
+      </div>
+      <div class="item">
+        <label for="Slug"> Slug<span>*</span></label>
+        <input id="Slug" type="text" name="Slug" required/>
+      </div>
+      <div class="item">
+        <label for="Body">Body<span>*</span></label>
+        <input id="Body" type="text"   name="Body" required/>
+      </div>
+      <div>
+        <input type="submit">
+      </div>
+{% endblock %}

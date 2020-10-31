@@ -7,6 +7,12 @@ class BigProject(models.Model):
     def __str__(self):
         return self.Funds
 
+class Project(models.Model):
+    Project_Type=models.CharField(max_length=30)
+    Project_Scale=models.CharField(max_length=30)
+    def __str__(self):
+        return self.Project_Type
+
 class Request(models.Model):
     username=models.CharField(max_length=30) 
     Project_ID=models.IntegerField()
@@ -67,3 +73,15 @@ class LocalPersonnel(models.Model):
     Occupation=models.CharField(max_length=40)
     def __str__(self):
         return self.First_name
+
+class Community(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.SlugField()
+    body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    thumb = models.ImageField(default='community.jpg',blank=True)
+    # add in author later
+    def __str__(self):
+        return self.title   
+    def snippet(self):
+        return self.body[:50]+'...'

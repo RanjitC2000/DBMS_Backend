@@ -1,25 +1,19 @@
 {% extends 'home/base.html' %}
 {% load static %}
 {% block content %}
-
-  <div class="columnmiddle">
-    <h2 style="text-align:center;">Rural water supply and sanitation system</h2>
-    <h3 style="text-align:center;"> Project Request</h3><br>
+<h2 style="text-align:center;">Community Messages!</h2>
+<div style="text-align:center;" class='community messages'>
     <div class="form-style-2" >
-      <div class="form-style-2-heading">Provide your project information</div><br>
-      <form action="" method="post">
-      <label for="Project_Type"><span>Project Type</span><select name="Project_Type" class="select-field">
-      <option value="Water">Water</option>
-      <option value="Sanitation">Sanitation</option>
-      </select></label>
-      <label for="Project_Scale"><span>Project Scale</span><select name="Project_Scale" class="select-field">
-        <option value="Large Scale">Large Scale</option>
-        <option value="Small Scale">Small Scale</option>
-        </select></label>
-      <label><span> </span><input type="submit" value="Submit" /></label>
-      </form>
-      </div>
-
-      
+        <div class="form-style-2-heading">Send Your Message Today!</div><br>
+        <div>
+            <a href="{% url 'commessage'%}">Go!</a>
+        </div>
+    {% for message in messages %}
+        <div style="color:black;text-align:center;">
+            <h2 style="color:black;text-align:center;"><a href="{% url 'detail' slug=message.slug%}">{{message.title}}</a></h2>
+            <p style="color:black;text-align:center;">{{message.snippet}}</p>
+            <p style="color:black;text-align:center;">{{message.date}}</p>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}

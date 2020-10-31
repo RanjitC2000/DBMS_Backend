@@ -1,0 +1,11 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h2><center>ERROR!</center></h2>
+  <div class="alert alert-success">
+    <strong><center>Please Enter an input!</center></strong> 
+  </div>
+ <footer class = 'back'><a href="{% url 'apply'%}">Back</a></footer>
+</div>
+{% endblock %}

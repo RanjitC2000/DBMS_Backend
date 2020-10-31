@@ -5,16 +5,20 @@
     <h3 style="text-align:center;"> Project Request</h3><br>
     <div class="form-style-2" >
       <div class="form-style-2-heading">Provide your project information</div><br>
-      <form action="requestpost" method="post">
+      <form action="save" method="post">
       {% csrf_token %} 
-    <label for="Project_Type"><span>Project Type</span><select name="Project_Type" class="select-field">
-      <option value="Water">Water</option>
-      <option value="Sanitation">Sanitation</option>
-      </select></label> 
-      <label for="Project_Scale"><span>Project Scale</span><select name="Project_Scale" class="select-field">
-        <option value="Large Scale">Large Scale</option>
-        <option value="Small Scale">Small Scale</option>
-        </select></label> 
-      <label><span> </span><input type="submit"/></label>
+        <label for="Project_Type"><span>Project Type</span>
+          <select name="Project_Type" class="select-field">
+            <option selected disabled="true">-- Select Project Type --</option>
+            <option value="Water">Water</option>
+            <option value="Sanitation">Sanitation</option>
+          </select></label> 
+          <label for="Project_Scale"><span>Project Scale</span>
+            <select name="Project_Scale" class="select-field">
+              <option selected disabled="true">-- Select Project Scale --</option>
+              <option value="Large Scale">Large Scale</option>
+              <option value="Small Scale">Small Scale</option>
+            </select></label> 
+          <label><span> </span><input type="submit"/></label>
       </form>
 {% endblock %}
