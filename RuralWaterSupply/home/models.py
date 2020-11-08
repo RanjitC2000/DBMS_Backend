@@ -7,6 +7,16 @@ class BigProject(models.Model):
     def __str__(self):
         return self.Funds
 
+class Notice(models.Model):
+    FirstName = models.CharField(max_length=100)
+    LastName = models.CharField(max_length=100)
+    Title = models.CharField(max_length=100)
+    Body = models.TextField()
+    def __str__(self):
+        return self.Title   
+    def snippet(self):
+        return self.Body[:50]+'...'
+
 class Project(models.Model):
     Project_Type=models.CharField(max_length=30)
     Project_Scale=models.CharField(max_length=30)

@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+
+    <h2 style="text-align:center;">Rural water supply and sanitation system</h2>
+    <h3 style="text-align:center;"> Project Status</h3>
+    <div class="forms" >
+        <div class="form-style-2-heading">Provide your project information</div>
+        <div >
+            <span class="alertmessage">
+            {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+            {% endif %}
+            </span>
+          </div>
+            <form action="/home/status/" method="post">
+            {% csrf_token %}
+                <label for="field1"><span>&nbsp;&nbsp;&nbsp;&nbsp;Username&nbsp;&nbsp;&nbsp;</pre><input type="text" class="input-field" name="username" value="" /></label>
+                    <br>
+                <label for="field1"><span>&nbsp;&nbsp;&nbsp;&nbsp;Project ID&nbsp;&nbsp;&nbsp;</pre><input type="text" class="input-field" name="Project ID" value="" /></label>
+                    <br>
+                <label><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><input type="submit" value="Submit" oncl /></label>
+            </form>
+{% endblock %}

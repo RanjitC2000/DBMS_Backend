@@ -104,9 +104,9 @@ body {
   padding: 10px;
 
 }
-
-
-
+.alertmessage {
+  background-color:grey;
+}
 
 /* Left and right column */
 .column.side{
@@ -160,14 +160,13 @@ function myFunction() {
 
 
 <div class="topnav">
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'status' %}">Project Status</a>
-    <a href="{% url 'apply' %}">Apply for a Project</a>
-    <a href="{% url 'healthscheme' %}">Healthcare initiatives</a>
-
-    <a href="{% url 'community' %}">Community</a>
-
-    <a href="{% url 'signup' %}" id="rig" onclick="myFunction()">Logout</a>
+    <a href="{% url 'home:home'%}">Home</a>
+    <a href="{% url 'home:status'%}">Project Status</a>
+    <a href="{% url 'home:apply'%}">Apply for a Project</a>
+    <a href="{% url 'home:healthscheme'%}">Healthcare initiatives</a>
+    <a href="{% url 'home:community'%}">Community</a>
+    <a href="{% url 'login' %}" id="rig" onclick="myFunction()">Logout</a>
+    <a href="#" id='rig'>{{user_name}}</a>
 </div>
 
 

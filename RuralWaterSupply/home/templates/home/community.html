@@ -2,18 +2,28 @@
 {% load static %}
 {% block content %}
 <h2 style="text-align:center;">Community Messages!</h2>
-<div style="text-align:center;" class='community messages'>
+<div class='community messages'>
     <div class="form-style-2" >
-        <div class="form-style-2-heading">Send Your Message Today!</div><br>
-        <div>
-            <a href="{% url 'commessage'%}">Go!</a>
+        <div style="position :absolute;top: 30%;right: 37%;text-align:center;" class="form-style-2-heading">Send Your Message Today!</div><br>
+        <div style="position :absolute;top: 33.5%;right: 42.5%;text-align:center;">
+            <a href="{% url 'personnel:commessage'%}">Go!</a>
         </div>
+    <div style="position :absolute;top: 35%;right: 37%;">
     {% for message in messages %}
         <div style="color:black;text-align:center;">
-            <h2 style="color:black;text-align:center;"><a href="{% url 'detail' slug=message.slug%}">{{message.title}}</a></h2>
+            <h2 style="color:black;text-align:center;"><a href="{% url 'personnel:detail' slug=message.slug%}">{{message.title}}</a></h2>
             <p style="color:black;text-align:center;">{{message.snippet}}</p>
             <p style="color:black;text-align:center;">{{message.date}}</p>
         </div>
     {% endfor %}
+    </div>
+    <div style="color:black;position :absolute;top: 22%;right: 2.5%">
+    {% for notice in notices %}
+    <div>
+        <h2 style="color:black;text-align:center;"><a href="{% url 'personnel:notice' title=notice.Title%}">{{notice.Title}}</a></h2>
+        <p style="color:black;text-align:center;">{{notice.snippet}}</p>
+    </div>
+    {% endfor %}
+    </div>
 </div>
 {% endblock %}

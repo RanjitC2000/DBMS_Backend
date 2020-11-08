@@ -17,5 +17,6 @@ def register(request):
     user.First_name = value['fname']
     user.Last_name = value['lname']
     user.date_of_birth = value['DOB']
+    user.Type = value['usertype']
     user.save()
     return render(request, 'registered.html')

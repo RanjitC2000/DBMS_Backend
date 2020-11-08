@@ -1,0 +1,11 @@
+{% extends "personnel/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h2><center>Success!</center></h2>
+  <div class="alert alert-success">
+    <strong><center>Your message has been published!</center></strong> 
+  </div>
+ <footer class = 'back'><a href="{% url 'community'%}">Back</a></footer>
+</div>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <div>
-    <form  action="SendMessage" method="post">
+    <form  action="/home/community/messages/" method="post">
         {% csrf_token %}
     <div class="banner">
       <h1>Send Your Message</h1>
