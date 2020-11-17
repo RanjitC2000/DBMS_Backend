@@ -1,0 +1,18 @@
+{% extends 'personnel/base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="text-align:center;">Group of Villages</h2>
+    <table class="center" style="width: 50%;" >
+      <tr>
+        <th>Village ID</th>
+        <th>Village Name</th>
+        <th>State</th>
+      </tr>
+      {% for village in villages %}
+      <tr>
+        <td>{{village.Village_ID}}</td>
+        <td>{{village.Village_name}}</td>
+        <td>{{village.State}}</td>
+     </tr>
+      {% endfor %}
+{% endblock %}

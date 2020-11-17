@@ -17,9 +17,19 @@ class Notice(models.Model):
     def snippet(self):
         return self.Body[:50]+'...'
 
+TYPE_CHOICES = (
+    ("water","Water"),
+    ("sanitation","Sanitation"),
+)
+
+SCALE_CHOICES = (
+    ("large","Large Scale"),
+    ("small","Small Scale"),
+)
+
 class Project(models.Model):
-    Project_Type=models.CharField(max_length=30)
-    Project_Scale=models.CharField(max_length=30)
+    Project_Type=models.CharField(max_length = 30,choices = TYPE_CHOICES, default = '--Project Type--')
+    Project_Scale=models.CharField(max_length = 30,choices = SCALE_CHOICES, default = '--Project Scale--')
     def __str__(self):
         return self.Project_Type
 
@@ -65,16 +75,14 @@ class Organization(models.Model):
 class Appointment(models.Model):
     username=models.CharField(max_length=100)
     Personnel_ID=models.IntegerField()
-    TimeSlot=models.TimeField()
+    TimeSlot=models.DateTimeField()
     def __str__(self):
         return self.username
 
 class OrganizationContact(models.Model):
     Organization_ID=models.IntegerField()
     Contact=models.IntegerField()
-    def __str__(self):
-        return self.Contact
-
+    
 class LocalPersonnel(models.Model):
     Personnel_ID=models.IntegerField()
     Village_ID=models.IntegerField()
@@ -86,7 +94,7 @@ class LocalPersonnel(models.Model):
 
 class Community(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    subject = models.CharField(max_length=100)
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     thumb = models.ImageField(default='community.jpg',blank=True)

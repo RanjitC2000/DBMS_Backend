@@ -7,7 +7,7 @@
             <p style="color:black;text-align:center;">{{message.body}}</p>
             <p style="color:black;text-align:center;">{{message.date}}</p>
             <img src="{{ message.thumb.url}}"width="300" height="300" style=" display: block;margin-left: auto;margin-right: auto;width: 50%;">
-            <footer><a href="{% url 'home:community'%}">Back</a></footer>
+            <footer style='float:left;'><a href="{% url 'home:community'%}">Back</a></footer>
         </div>
     </div>
 {% endblock %}

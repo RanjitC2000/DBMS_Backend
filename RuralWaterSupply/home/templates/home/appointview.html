@@ -1,0 +1,19 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="text-align:center;">Booked Appointments</h2>
+    <h3 style="text-align:center;">Table of appointments</h3><br>
+    <table class="center" style="width: 50%;" >
+      <tr>
+        <th>Username</th>
+        <th>Personnel ID</th>
+        <th>Time Slot</th>
+      </tr>
+      {% for appoint in appoints %}
+      <tr>
+        <td>{{appoint.username}}</td>
+        <td>{{appoint.Personnel_ID}}</td>
+        <td>{{appoint.TimeSlot}}</td>
+     </tr>
+      {% endfor %}
+{% endblock %}

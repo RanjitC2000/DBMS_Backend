@@ -1,0 +1,11 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <h2><center>Success!</center></h2>
+  <div class="alert alert-success">
+    <strong><center>Your Appointment has been booked!</center></strong> 
+  </div>
+ <footer style = "text-align: center;" class = 'back'><a href="{% url 'home:appointment' %}">Back</a></footer>
+</div>
+{% endblock %}

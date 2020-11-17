@@ -1,39 +1,21 @@
 {% extends "personnel/base.html" %}
 {% load static %}
 {% block content %}
-
-<div>
-    <form  action="/personnel/publish/" method="post">
-        {% csrf_token %}
-    <div class="banner">
-      <h1>Publish Message to All users
-      </h1>
+<h1 style="text-align: center;">Publish Message to All users</h1>
+<h2 style="text-align: center;" class="alertmessage">
+  {% if messages %}
+  {% for message in messages %}
+      {{ message }}
+  {% endfor %}
+  {% endif %}
+</h2>
+<div class="containersend">
+  <form  action="/personnel/publish/" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="row">
+      <input style="float: right;" type="submit" value="Submit">
     </div>
-    <div class="colums">
-      <div class="item">
-        <label for="fname"> First Name<span>*</span></label>
-        <input id="fname" type="text" name="fname" required/>
-      </div>
-    <div class="item">
-        <label for="lname"> Last Name<span>*</span></label>
-        <input id="lname" type="text"   name="lname" required/>
-      </div>
-    <div class="item">
-        <label for="Title"> Title<span>*</span></label>
-        <input id="Title" type="text" name="Title" required/>
-    </div>
-    <div class="item">
-      <label for="Body"> Body<span>*</span></label>
-      <input id="Body" type="text" name="Body" required/>
-    </div>
-      <div>
-        <input type="submit">
-      </div>
-      <span class="alertmessage">
-        {% if messages %}
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
-        {% endif %}
-        </span>
+  </form>
+</div>
 {% endblock %}

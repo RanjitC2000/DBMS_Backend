@@ -1,0 +1,29 @@
+{% extends 'personnel/base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="text-align:center;">Big Projects</h2>
+    <h3 style="text-align:center;">Table of Projects</h3><br>
+    <table class="center" style="width: 50%;" >
+      <tr>
+        <th>Project ID</th>
+        <th>Village ID</th>
+        <th>Type</th>
+        <th>Organization ID</th>
+        <th>Development</th>
+        <th>Funds</th>
+      </tr>
+      {% for largeProj in largeProjs %}
+      <tr>
+        <td>{{largeProj.Project_ID}}</td>
+        <td>{{largeProj.Village_ID}}</td>
+        <td>{{largeProj.Type}}</td>
+        <td>{{largeProj.Organization_ID}}</td>
+        <td>{{largeProj.Development}}</td>
+        {% for fund in funds %}
+        {% if largeProj.Development == fund.Development %}
+            <td>{{fund.Funds}}</td>
+        {% endif %}
+        {% endfor %}
+     </tr>
+      {% endfor %}
+{% endblock %}

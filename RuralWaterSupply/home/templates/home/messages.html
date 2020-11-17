@@ -3,34 +3,13 @@
 {% block content %}
 <h1 style="text-align: center;">Send Your Message!</h1>
 <div class="containersend">
-    <form  action="/home/community/messages/" method="post">
-        {% csrf_token %}
-    <div class="row"> 
-      <div class="col-25">
-        <label for="Title">Title</label>
+    <form  action="/home/community/messages/" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{form.as_p}}
+      <div class="row">
+        <footer style="float: left;" class = 'back'><a href="{% url 'home:community'%}">Back</a></footer>
+        <input style="float: right;" type="submit" value="Submit">
       </div>
-      <div class="col-75">
-        <input type="text" id="Title" name="Title" placeholder="Title..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="Slug">Slug</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="Slug" name="Slug" placeholder="Slug..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="Body">Body</label>
-      </div>
-      <div class="col-75">
-        <textarea id="Body" name="Body" placeholder="Write something.." style="height:200px"></textarea>
-      </div>
-    </div>
-    <div class="row">
-      <input style="float: right;" type="submit" value="Submit">
-    </div>
     </form>
+</div>
 {% endblock %}

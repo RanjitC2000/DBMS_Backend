@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %}
+{% extends 'personnel/base.html' %}
 {% load static %}
 {% block content %}
 <h2 style="text-align:center;">Community Messages!</h2>
@@ -16,7 +16,7 @@
     <div>
     {% for message in messages %}
         <div  class="containermessage">
-            <span style="float: right;font-size: medium;"><a href="{% url 'personnel:detail' slug=message.slug%}">Read More -></a></span>
+            <span style="float: right;font-size: medium;"><a href="{% url 'personnel:detail' subject=message.subject%}">Read More -></a></span>
             <div>{{message.snippet}}
             <span style="font-size: small;" class="time-right">{{message.date}}</span>
             </div>
@@ -25,16 +25,15 @@
     {% endfor %}
     </div>
     <div class="columnright">
-        <h2>Bulletin Board</h2>
+        <h2 style="color: white;">Bulletin Board</h2>
         <ul class="board">
         {% for notice in notices %}
         <div class="board">
-        <li class="board"><a href="{% url 'personnel:notice' title=notice.Title%}">{{notice.Title}}</a></h2>
+        <li class="board"><a style="text-decoration: underline;" href="{% url 'personnel:notice' title=notice.Title%}">{{notice.Title}}</a></h2>
         <p class="board">{{notice.snippet}}</p>
         </div>
         {% endfor %}
         </ul>
     </div>
 </div>
-
 {% endblock %}

@@ -1,24 +1,15 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
- <h2 style="text-align:center;">Rural water supply and sanitation system</h2>
-    <h3 style="text-align:center;"> Project Request</h3><br>
-    <div style="text-align:center;" class="form-style-2" >
-      <div class="form-style-2-heading">Provide your project information</div><br>
-      <form action="/home/apply/" method="post">
-      {% csrf_token %} 
-        <label for="Project_Type"><span>Project Type</span>
-          <select name="Project_Type" class="select-field">
-            <option selected disabled="true">-- Select Project Type --</option>
-            <option value="Water">Water</option>
-            <option value="Sanitation">Sanitation</option>
-          </select></label> 
-          <label for="Project_Scale"><span>Project Scale</span>
-            <select name="Project_Scale" class="select-field">
-              <option selected disabled="true">-- Select Project Scale --</option>
-              <option value="Large Scale">Large Scale</option>
-              <option value="Small Scale">Small Scale</option>
-            </select></label> 
-          <label><span> </span><input type="submit"/></label>
-      </form>
+<h2 style="text-align: center;">Project Request</h2>
+<div class="containersend">
+    <div style="text-align: center;" class="form-style-2-heading">Provide your project information</div>
+    <form action="/home/apply/" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="row">
+            <input style="float: right;" type="submit" value="Submit">
+        </div>
+  </form>
+</div>
 {% endblock %}

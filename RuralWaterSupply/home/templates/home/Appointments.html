@@ -1,0 +1,15 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<h2 style="text-align: center;">Book Your Appointment</h2>
+<div class="containersend">
+    <div class="form-style-2-heading">Provide your information</div>
+    <form action="/home/appoint/" method="post"> 
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="row">
+            <input style="float: right;" type="submit" value="Submit">
+        </div>
+  </form>
+</div>
+{% endblock %}

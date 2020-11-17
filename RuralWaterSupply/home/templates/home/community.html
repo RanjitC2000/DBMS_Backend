@@ -16,7 +16,7 @@
     <div>
     {% for message in messages %}
         <div  class="containermessage">
-            <span style="float: right;font-size: medium;"><a href="{% url 'home:detail' slug=message.slug%}">Read More -></a></span>
+            <span style="float: right;font-size: medium;"><a href="{% url 'home:detail' subject=message.subject%}">Read More -></a></span>
             <div>{{message.snippet}}
             <span style="font-size: small;" class="time-right">{{message.date}}</span>
             </div>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="columnright">
-        <h2>Bulletin Board</h2>
+        <h2 style='color: white;'>Bulletin Board</h2>
         <ul class="board">
         {% for notice in notices %}
         <div class="board">
@@ -37,5 +37,4 @@
         </ul>
     </div>
 </div>
-
 {% endblock %}
