@@ -1,26 +1,36 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
-<div>
+<h1 style="text-align: center;">Send Your Message!</h1>
+<div class="containersend">
     <form  action="/home/community/messages/" method="post">
         {% csrf_token %}
-    <div class="banner">
-      <h1>Send Your Message</h1>
+    <div class="row"> 
+      <div class="col-25">
+        <label for="Title">Title</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Title" name="Title" placeholder="Title..">
+      </div>
     </div>
-    <div class="colums">
-      <div class="item">
-        <label for="Title"> Title<span>*</span></label>
-        <input id="Title" type="text" name="Title" required/>
+    <div class="row">
+      <div class="col-25">
+        <label for="Slug">Slug</label>
       </div>
-      <div class="item">
-        <label for="Slug"> Slug<span>*</span></label>
-        <input id="Slug" type="text" name="Slug" required/>
+      <div class="col-75">
+        <input type="text" id="Slug" name="Slug" placeholder="Slug..">
       </div>
-      <div class="item">
-        <label for="Body">Body<span>*</span></label>
-        <input id="Body" type="text"   name="Body" required/>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="Body">Body</label>
       </div>
-      <div>
-        <input type="submit">
+      <div class="col-75">
+        <textarea id="Body" name="Body" placeholder="Write something.." style="height:200px"></textarea>
       </div>
+    </div>
+    <div class="row">
+      <input style="float: right;" type="submit" value="Submit">
+    </div>
+    </form>
 {% endblock %}

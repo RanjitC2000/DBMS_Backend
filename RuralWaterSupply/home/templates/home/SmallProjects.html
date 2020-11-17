@@ -1,0 +1,25 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+<h2 style="text-align:center;">Small Projects</h2>
+    <h3 style="text-align:center;">Table of Projects</h3><br>
+    <table class="center" style="width: 50%;" >
+      <tr>
+        <th>Project ID</th>
+        <th>Village ID</th>
+        <th>Type</th>
+        <th>Personnel ID</th>
+        <th>Facility</th>
+        <th>Location</th>
+      </tr>
+      {% for smallProj in smallProjs %}
+      <tr>
+        <td>{{smallProj.Project_ID}}</td>
+        <td>{{smallProj.Village_ID}}</td>
+        <td>{{smallProj.Type}}</td>
+        <td>{{smallProj.Personnel_ID}}</td>
+        <td>{{smallProj.Facility}}</td>
+        <td>{{smallProj.Location}}</td>
+     </tr>
+      {% endfor %}
+{% endblock %}

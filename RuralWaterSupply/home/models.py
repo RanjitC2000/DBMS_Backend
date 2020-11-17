@@ -5,7 +5,7 @@ class BigProject(models.Model):
     Development = models.CharField(max_length=100,primary_key = True)
     Funds = models.IntegerField()
     def __str__(self):
-        return self.Funds
+        return self.Development
 
 class Notice(models.Model):
     FirstName = models.CharField(max_length=100)
@@ -65,7 +65,7 @@ class Organization(models.Model):
 class Appointment(models.Model):
     username=models.CharField(max_length=100)
     Personnel_ID=models.IntegerField()
-    TimeSlot=models.DateField()
+    TimeSlot=models.TimeField()
     def __str__(self):
         return self.username
 

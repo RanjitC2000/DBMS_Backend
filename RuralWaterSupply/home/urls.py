@@ -14,4 +14,7 @@ urlpatterns = [
     path(r'^(?P<slug>[\w-]+)/$',views.community_detail,name='detail'),
     path(r'^(notice/?P<title>[\w-]+)/$',views.notice,name='notice'),
     path('community/messages/',views.Commessage,name='commessage'),
+    path('bigProj/',views.bigProj,name='bigProj'),
+    path('smallProj/',views.smallProj,name='smallProj'),
+    path('appoint/',views.appoint,name='appointment'),
 ]

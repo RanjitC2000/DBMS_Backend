@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +11,103 @@
     display: inline-block;
     margin-left: 40px;
 } 
-  input[type=text], select {
-  width: 10%;
+.containermessage {
+  border: 2px solid #4CAF50;
+  width: 70%;
+  height: 10%;
+  background-color:cyan;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 20px;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+/* Style time text */
+.time-right {
+  float: right;
+  clear: right;
+  color: #aaa;
+}
+
+.board{
+  color:black;
+  text-align:left;
+  background-color: chartreuse;
+}
+
+.board p{
+ padding: 8px 16px;
+  
+}
+
+.board li a{
+  color:black;
+  text-align:left;
+  list-style: circle;
+}
+
+/* Style time text */
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.containersend {
+  margin-left: 15%;
+  margin-right: 5%;
+  border-radius: 5px;
+  background-color:teal;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+input[type=text], textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+input[type=text], select {
+  width: 20%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -59,27 +155,25 @@ th {
   box-sizing: border-box;
 }
 
-.alertmessage {
-  background-color:grey;
-}
-
 body {
   margin: 0;
+  background-color:lightskyblue;
 }
 
 /* Style the header */
 .header {
   padding: 20px;
   text-align: center;
-  background-image:url(copy.jpg);
-  background-repeat:no-repeat;
+  background-image:url("{% static 'copy.jpg' %}");
   background-position: 100% 100%;
+  font-family: 'Trebuchet MS';
+  
 }
 
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(0, 49, 58);
 }
 
 /* Style the topnav links */
@@ -89,12 +183,13 @@ body {
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-decoration: none;
 }
 
 /* Change color on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color:#f8bd7f;
   color: black;
 }
 
@@ -102,15 +197,15 @@ body {
 .column {
   float: left;
   padding: 10px;
-
 }
-
 
 /* Left and right column */
 .column.side {
-  width: 14%;
-  color:white;
-    background-color:lightgreen;
+  
+  color:cyan;
+  font-size:large;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
 }
 
 /* Middle column */
@@ -119,9 +214,24 @@ body {
   padding-left: 100px;
   border-left: 10px;
   padding-left: 20px;
-
+  color:black;
+  font-size:larger;
+  background-repeat: repeat;
+  background-blend-mode: darken;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
+.columnright {
+  width:13.5%;
+  height: 100%;
+  padding: 5px;
+  position: absolute;
+  margin-left: 90%;
+  border: 5px;
+  background-color: chartreuse;
+  top: 32.5%;
+  right: 0%;
+}
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -134,16 +244,94 @@ body {
   .column.side, .column.middle {
     width: 100%;
   }
+  
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: rgb(0, 49, 58);
+}
+
+li a {
+  display: block;
+  color:#f1f1f1;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color:#f8bd7f;
+  color:black;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 244px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -ms-flex-item-align: center;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 125%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: rgb(0, 49, 58);
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #f8bd7f;
+  color: black;
+  transform: rotateY(180deg);
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 
 
+<script>
+  function myFunction() {
+    alert("Are you sure you want to Logout");
+  }
+  </script>
 </head>
 <body>
+  <div class="header">
+    <img src="{%static 'logo.png'%}" height="75"width="75">
+    <h1> Rural Water Supply and Sanitation System</h1>
+    
+  </div>
 
-<div class="header">
-  <h1>Rural water supply and sanitation system</h1>
-</div>
 
 <div class="topnav">
   <a href="{% url 'personnel:home'%}">Home</a>
@@ -157,18 +345,15 @@ body {
 
 <div class="row">
   <div class="column side">
-    <h2>Navigation</h2>
-    <p><a href="https://ejalshakti.gov.in/IMISReports/NRDWP_MIS_NationalRuralDrinkingWaterProgramme.html">Acheivements</a></p>
-    <p><a href="http://megphed.gov.in/schemes.htm">Schemes</a></p>
-    <p><a href="http://megphed.gov.in/services.htm">Services</a></p>
-    <p><a href="http://megphed.gov.in/acts.htm">Acts/Rules</a></p>
-    <p><a href="http://megphed.gov.in/acts.htm">Circulars & Notifications</a></p>
-    <p><a href="#">Budget</a></p>
-    <p><a href="http://megphed.gov.in/resolution.htm">Rainwater Harvesting</a></p>
-    <p><a href="./request.html">Schemes Status</a></p>
-    <p><a href="http://megphed.gov.in/photogallery.htm">Video Gallery</a></p>
- 
-
+    <ul>
+      <li>NAVIGATION</li>
+      <li><a href="https://ejalshakti.gov.in/IMISReports/NRDWP_MIS_NationalRuralDrinkingWaterProgramme.html">Big Projects</a></li>
+      <li><a href="http://megphed.gov.in/schemes.htm">Small Projects</a></li>
+      <li><a href="http://megphed.gov.in/services.htm">Appointments</a></li>
+      <li><a href="http://megphed.gov.in/acts.htm">List of Local Personnel</a></li>
+      <li><a href="http://megphed.gov.in/acts.htm">Committee of Organizeers</a></li>
+      <li><a href="https://sustainabledevelopment.un.org/partnership/?p=1646">Rainwater Harvesting</a></li>
+    </ul>
   </div>
   
   

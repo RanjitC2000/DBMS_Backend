@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Request,Project,Community,Notice
+from .models import Request,Project,Community,Notice,LargeScale,BigProject,SmallScale,Appointment
 from django.contrib import messages
 from django.urls import reverse
 from django.contrib.auth import login,logout
@@ -35,7 +35,7 @@ def healthscheme(request):
     return render(request,'home/HC.html')
 
 def community(request):
-    community_messages = Community.objects.all().order_by('date')
+    community_messages = Community.objects.all().order_by('-date')
     notices = Notice.objects.all()
     return render(request,'home/community.html',{'messages': community_messages,'notices':notices})
 
@@ -57,4 +57,24 @@ def Commessage(request):
 
 def notice(request,title):
     notice = Notice.objects.get(Title = title)
-    return render(request,'personnel/Notice.html',{'notice':notice})
+    return render(request,'home/Notice.html',{'notice':notice})
+
+def bigProj(request):
+    bigProj = LargeScale.objects.all()
+    funds = BigProject.objects.all()
+    return render(request,'home/BigProjects.html',{'largeProjs':bigProj,'funds':funds})
+
+def smallProj(request):
+    smallProj = SmallScale.objects.all()
+    return render(request,'home/SmallProjects.html',{'smallProjs':smallProj})
+
+def appoint(request):
+    if request.method == 'POST':
+        value = request.POST
+        appointment = Appointment()
+        appointment.username = value['username']
+        appointment.Personnel_ID = value['personnel']
+        appointment.TimeSlot = value['time']
+        appointment.save()
+        return render(request,'home/appointprocessing/html')  
+    return render(request,'home/appoint.html')
